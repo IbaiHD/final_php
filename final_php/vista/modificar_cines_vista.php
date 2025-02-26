@@ -1,29 +1,22 @@
 <html>
-<html>
 <head>
-<link rel="stylesheet" href="css.css">
 </head>
 <body>
 
-<h2> Puedes ver las películas en los siguientes cines:</h2>
-
-<table>
-<tr>
-    <th>Título</th>
-    <th>Género</th>
-</tr>
-
-<?php foreach($arrayCines as $fila):?>
-<tr>
-    <td><?php echo $fila["nombre"]; ?></td>
-    <td><?php echo $fila["ubicacion"]; ?></td>
-    <td><form action="" method="post"><input type="submit" value="Modificar"><input type="hidden" name="modificar" value="<?php echo $fila['id'];?>"></form></td>
-</tr>
-<?php endforeach;?>
-
-</table>
-
-<h4><?php echo $aviso_modificado ?></h4>
+<form action="" method="post">
+    <fieldset>
+        <legend>Rellena los siguientes campos</legend>
+        <label for=nombre>Nombre del Cine:</label>
+        <?php foreach($arrayCines as $fila): ?>
+            <input type="text" name=dato1 value="<?php echo $fila["nombre"]?>" required>
+            <br><br>
+            <label for=ubicacion>Dirección del Cine:</label>
+            <input type="text" name=dato2 value="<?php echo $fila["ubicacion"]?>" required>
+            <br><br>
+            <input type="submit" value="Modificar">
+        <?php endforeach ?>
+    </fielset>
+</form>
 
 </body>
 </html>

@@ -39,8 +39,15 @@
             }
         }
 
+        public function get_cine_seleccionado($id){
+            $query = "SELECT * FROM cines WHERE id='$id'";
+            $result = $this->conn->query($query);
+            $this->cines[] = $result->fetch_assoc();
+            return $this->cines;
+        }
+
         public function modificarCines($id,$nombre,$ubicacion){
-            $query = "UPDATE FROM cines SET nombre='$nombre', ubicacion='$ubicacion' WHERE id='$id'";
+            $query = "UPDATE cines SET nombre='$nombre', ubicacion='$ubicacion' WHERE id='$id'";
             $result = $this->conn->query($query);
             if($this->conn->affected_rows > 0){
                 return "Se ha modificado un Cine de la base de datos";

@@ -8,8 +8,8 @@
 
 <table>
 <tr>
-    <th>Título</th>
-    <th>Género</th>
+    <th>Nombre del Cine</th>
+    <th>Dirección</th>
 </tr>
 
 <?php foreach($arrayCines as $fila):?>

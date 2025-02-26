@@ -6,21 +6,11 @@
 <form id="añadir_horarios" action="" method="post">
     <fieldset>
         <legend>Rellena los siguientes campos</legend>
-        <label for=nombre_pelicula>Selecciona la película:</label>
-        <select name=nombre_pelicula required>
-            <option> --------- </option>
-            <?php foreach($arrayPeliculas as $pelicula):?>
-                <option value="<?php echo $pelicula['id']; ?>"><?php echo $pelicula["nombre"] ?></option>
-            <?php endforeach; ?>
-        </select>
+        <label for=nombre_cine>Nombre del Cine:</label>
+        <input type="text" name=nombre_cine value="" placeholder="Nombre del cine..." required>
         <br><br>
-        <label for=nombre_cine>Selecciona el cine:</label>
-        <select name=nombre_cine required>
-            <option> --------- </option>
-            <?php foreach($arrayCines as $cine):?>
-                <option value="<?php echo $cine['id']; ?>"><?php echo $cine["nombre"] ?></option>
-            <?php endforeach; ?>
-        </select>
+        <label for=nombre_pelicula>Dirección del Cine:</label>
+        <input type="text" name=nombre_pelicula value="" placeholder="Nombre de la pelicula..." required>
         <br><br>
         <label for=hora_inicio>Hora de inicio:</label>
         <input type="time" name="hora_inicio" required>

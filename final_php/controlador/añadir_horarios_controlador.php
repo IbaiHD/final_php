@@ -1,12 +1,5 @@
 <?php
 
-    require_once("modelo/cines_modelo.php");
-    $cine = new Cines_modelo();
-    $arrayCines = $cine->get_cines();
-    require_once("modelo/peliculas_modelo.php");
-    $pelicula = new Peliculas_modelo();
-    $arrayPeliculas = $pelicula->get_peliculas();
-
     $aviso_añadido = "";
     if(isset($_POST["nombre_pelicula"])){
             $nombre_pelicula = intval($_POST["nombre_pelicula"]);

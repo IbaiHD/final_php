@@ -6,6 +6,10 @@
         $_SESSION["tarea"] = $_POST["tarea"];
     }
 
+    if(!isset($_SESSION["tarea"])){
+        $_SESSION["tarea"] = "";
+    }
+
     if(isset($_POST["tabla"])){
         $_SESSION["tabla"] = $_POST["tabla"];
     }
@@ -40,16 +44,10 @@
         $_SESSION["dato2"] = "";
     }
 
-    if(isset($_POST["dato3"])){
-        $_SESSION["dato3"] = $_POST["dato3"];
+    if(isset($_SESSION["id_formulario"])){
+        $_SESSION["id_formulario"] = $_SESSION["id_formulario"];
     }else{
-        $_SESSION["dato3"] = "";
-    }
-
-    if(isset($_POST["dato4"])){
-        $_SESSION["dato4"] = $_POST["dato4"];
-    }else{
-        $_SESSION["dato4"] = "";
+        $_SESSION["id_formulario"] = "";
     }
 
     switch ($_SESSION["tarea"]){
@@ -84,7 +82,7 @@
         case "modificar":
             switch ($_SESSION["tabla"]){
                 case "peliculas":
-                    require_once("controlador/modificar_pelicula_controlador.php");
+                    require_once("controlador/modificar_peliculas_controlador.php");
                     break;
                 case "cines":
                     require_once("controlador/modificar_cines_controlador.php");
@@ -109,5 +107,6 @@
             }
         break;          
     }
+
 
 ?>

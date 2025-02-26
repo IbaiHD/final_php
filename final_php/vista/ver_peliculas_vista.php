@@ -3,8 +3,16 @@
 <link rel="stylesheet" href="css.css">
 </head>
 <body>
+    
+    <h2> Películas actualmente disponibles en la cartelera:</h2>
 
-<h2> Películas actualmente disponibles en la cartelera:</h2>
+<form id="form_busqueda" action="" method="post">
+    <h4>
+        <label for=busqueda>Buscar por género...</label>
+        <input type="text" name="buscar" value="" placeholder="Pon aquí el género...">
+        <input type="submit" value="Buscar">
+    </h4>
+</form>
 
 <table>
 <tr>

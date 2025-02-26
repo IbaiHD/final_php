@@ -68,6 +68,27 @@
             }
         }
 
+        public function get_horario_seleccionado($id){
+            $query = "SELECT p.nombre as nombrepeli, c.nombre as nombrecine, h.hora_inicio, h.hora_fin, h.id 
+            FROM horarios h 
+            INNER JOIN peliculas p ON h.id_pelicula = p.id
+            INNER JOIN cines c ON h.id_cine = c.id
+            WHERE h.id='$id'";
+            $result = $this->conn->query($query);
+            $this->horarios[] = $result->fetch_assoc();
+            return $this->horarios;
+        }
+
+        public function modificarHorarios($id,$hora_inicio,$hora_fin){
+            $query = "UPDATE horarios SET hora_inicio='$hora_inicio', hora_fin='$hora_fin' WHERE id='$id'";
+            $result = $this->conn->query($query);
+            if($this->conn->affected_rows > 0){
+                return "Se ha modificado un Cine de la base de datos";
+            }else{
+                return "No se ha encontrado nada que modificar";
+            }
+        }
+
     }
 
 ?>
