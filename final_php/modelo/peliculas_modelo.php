@@ -27,7 +27,16 @@
             }else{
                 return "No se ha podido añadir nada";
             }
-        }        
+        } 
+        public function eliminarPeliculas($id){
+            $query = "DELETE FROM peliculas WHERE id='$id'";
+            $result = $this->conn->query($query);
+            if($this->conn->affected_rows > 0){
+                return "Se ha eliminado una Película de la base de datos";
+            }else{
+                return "No se ha encontrado nada que eliminar";
+            }
+        }
 
     }
 

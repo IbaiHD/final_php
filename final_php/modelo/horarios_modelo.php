@@ -20,7 +20,7 @@
         }
 
         public function get_sesiones(){
-            $query = "SELECT p.nombre as nombrepeli, c.nombre as nombrecine, h.hora_inicio, h.hora_fin 
+            $query = "SELECT p.nombre as nombrepeli, c.nombre as nombrecine, h.hora_inicio, h.hora_fin, h.id 
                 FROM horarios h 
                 INNER JOIN peliculas p ON h.id_pelicula = p.id
                 INNER JOIN cines c ON h.id_cine = c.id
@@ -33,7 +33,7 @@
         }
 
         public function get_busqueda($buscar){
-            $query = "SELECT p.nombre as nombrepeli, c.nombre as nombrecine, h.hora_inicio, h.hora_fin 
+            $query = "SELECT p.nombre as nombrepeli, c.nombre as nombrecine, h.hora_inicio, h.hora_fin, h.id
                 FROM horarios h 
                 INNER JOIN peliculas p ON h.id_pelicula = p.id
                 INNER JOIN cines c ON h.id_cine = c.id
@@ -41,7 +41,7 @@
                 ORDER BY h.hora_inicio ASC";
             $result = $this->conn->query($query);
 
-            $this->horario = array();
+            $this->horarios = array();
             while($fila = $result->fetch_assoc()){
                 $this->horarios[]=$fila;
             }
@@ -55,6 +55,16 @@
                 return "Se ha añadido una nueva sesión a la base de datos";
             }else{
                 return "No se ha podido añadir nada";
+            }
+        }
+
+        public function eliminarHorarios($id){
+            $query = "DELETE FROM horarios WHERE id='$id'";
+            $result = $this->conn->query($query);
+            if($this->conn->affected_rows > 0){
+                return "Se ha eliminado una Sesión de la base de datos";
+            }else{
+                return "No se ha encontrado nada que eliminar";
             }
         }
 

@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS horarios (
     hora_fin TIME NOT NULL,
     id_pelicula INT,
     id_cine INT,
-    FOREIGN KEY (id_pelicula) REFERENCES peliculas(id),
-    FOREIGN KEY (id_cine) REFERENCES cines(id)
+    FOREIGN KEY (id_pelicula) REFERENCES peliculas(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_cine) REFERENCES cines(id) ON DELETE CASCADE
 );
 
 
